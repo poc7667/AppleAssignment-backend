@@ -24,9 +24,10 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 
 # development/production differs in bundle install
-RUN if [[ "$RAILS_ENV" == "production" ]]; then\
-bundle install --jobs 20 --retry 5 --without development test;\
-else bundle install --jobs 20 --retry 5; fi
+#RUN if [[ "$RAILS_ENV" == "production" ]]; then\
+#bundle install --jobs 20 --retry 5 --without development test;\
+#else bundle install --jobs 20 --retry 5; fi
+RUN bundle install
 
 # Remove build dependencies and install runtime dependencies
 RUN apk del build-dependency
