@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+CalculationRecord.destroy_all
+
+record1 = CalculationRecord.create(
+    {
+        input: ",1,2,3,#,#,4,5,#,#,#,#",
+    }
+)
+
+
+record2 = CalculationRecord.create(
+    {
+        input: ",12,2,3,#,#,43,5,#,#,#,#",
+    }
+)

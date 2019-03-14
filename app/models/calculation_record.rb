@@ -13,8 +13,19 @@
 class CalculationRecord < ApplicationRecord
   attr_accessor :results
 
-  before_create do
-    self.calculate
+  validate :validate_input
+
+
+  # before_create do
+  #   self.calculate
+  # end
+
+  def validate_input
+    begin
+      self.calculate
+    rescue Exception => e # Never do this!
+      errors.add(:input, "Not valid input.")
+    end
   end
 
   def calculate
@@ -26,6 +37,9 @@ class CalculationRecord < ApplicationRecord
 
   def self.deserialize(input = ",1,2,3,#,#,4,5,#,#,#,#")
     toks = input.split(",")
+    if toks.length == 0
+      raise "error"
+    end
     _, val = toks.shift, toks.shift
     if val == '#'
       root = nil
@@ -58,7 +72,7 @@ class CalculationRecord < ApplicationRecord
 
   def self.DFS(nod, paths = [])
     if nod.left.nil? and nod.right.nil?
-      @results.push(paths+[nod.val])
+      @results.push(paths + [nod.val])
     else
       if not nod.left.nil?
         self.DFS(nod.left, paths.dup.push(nod.val))
@@ -74,14 +88,14 @@ class CalculationRecord < ApplicationRecord
     @results = []
     max_sum_of_the_longest_path = 0
     self.DFS(root, [])
-    if @results.length==0
+    if @results.length == 0
       return max_sum_of_the_longest_path
     else
       @results.each do |a|
-        max_len = [max_len , a.length].max
+        max_len = [max_len, a.length].max
       end
 
-      max_sum_of_the_longest_path  = @results.select{|a| a.length==max_len}.map{|x| x.sum}.max
+      max_sum_of_the_longest_path = @results.select {|a| a.length == max_len}.map {|x| x.sum}.max
     end
     return max_sum_of_the_longest_path, @results
   end
