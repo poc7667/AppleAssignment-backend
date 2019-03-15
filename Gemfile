@@ -69,6 +69,8 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+gem 'bcrypt', '3.1.6'
+
 gem 'rspec-rails'
 gem 'rspec-deep-ignore-order-matcher'
 gem "rspec-expectations"
