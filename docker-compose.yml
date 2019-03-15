@@ -1,6 +1,6 @@
 version: '3'
 services:
-  db:
+  apple_demo_db:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
@@ -18,4 +18,4 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - apple_demo_db

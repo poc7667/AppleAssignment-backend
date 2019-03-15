@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       if @user.save
         format.json { render :show, status: :created}
       else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render :json => { :errors => 'This account has been taken.' }, status: :unprocessable_entity }
       end
     end
   end

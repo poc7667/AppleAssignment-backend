@@ -30,7 +30,6 @@ class SessionsController < ApplicationController
         format.json {render :show, status: :created}
       end
     end
-
   end
 
 
