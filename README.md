@@ -33,6 +33,11 @@ The React/Redux will interact with the backend service through RESTful API.
 - Frontend: React/Redux, Bootstrap, Webpack 
 - DB: PostgreSQL 
 
+# Source code
+
+- Backend repo https://github.com/poc7667/AppleAssignment-backend
+- Frontend repo https://github.com/poc7667/AppleAssignment-frontend
+
 # Notes
 
 If Dockerized Rails could not connect to the PostgreSQL DB,
