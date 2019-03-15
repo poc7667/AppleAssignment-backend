@@ -72,6 +72,7 @@ end
 gem 'rspec-rails'
 gem 'rspec-deep-ignore-order-matcher'
 gem "rspec-expectations"
+gem 'rack-cors', require: 'rack/cors'
 
 
 gem "rails-erd"

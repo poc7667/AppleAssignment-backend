@@ -36,7 +36,12 @@ class CalculationRecord < ApplicationRecord
   end
 
   def self.deserialize(input = ",1,2,3,#,#,4,5,#,#,#,#")
+    input = input.strip
+    if input[0] != ","
+      input = "," + input
+    end
     toks = input.split(",")
+    counter = 0
     if toks.length == 0
       raise "error"
     end
@@ -48,6 +53,11 @@ class CalculationRecord < ApplicationRecord
     end
     q = [root]
     while q.size > 0
+      counter += 1
+      if counter > 200
+        raise "Invalid input"
+      end
+
       curr = q.shift
       if curr != nil
         left_child, right_child = toks.shift, toks.shift

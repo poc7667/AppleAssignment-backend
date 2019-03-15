@@ -1,24 +1,39 @@
-# README
+# DEMO Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This live demo has been deployed to a cloud server.
 
-Things you may want to cover:
+https://birchwords.co/apple_demo/demo.html
 
-* Ruby version
+The React/Redux will interact with the backend service through RESTful API.
 
-* System dependencies
+## How to input the tree value.
+- Please refer the demo video or copy existing samples' input
+- Each node is separated by common, `null node` is represented by `#`(Required).
 
-* Configuration
+# Data flow
 
-* Database creation
+![inline](https://i.imgur.com/9UzOrFc.png=300x "Title")
 
-* Database initialization
+ 
+# INSTALLATION STEP
 
-* How to run the test suite
+- Get docker install on your system.
 
-* Services (job queues, cache servers, search engines, etc.)
+- Refer to the `docker-compose.yml` under this project.
 
-* Deployment instructions
+# Build steps
 
-* ...
+- Build the image `docker-compose build`
+- Run the Docker compose `docker-compose up` which will bring web server and the db server up
+
+# Tech stack
+
+- Web server: Nginx
+- Backend: Ruby on Rails 5.2.2
+- Frontend: React/Redux, Bootstrap, Webpack 
+- DB: PostgreSQL 
+
+# Notes
+
+If Dockerized Rails could not connect to the PostgreSQL DB,
+Please update the database.yml file to `host:db`

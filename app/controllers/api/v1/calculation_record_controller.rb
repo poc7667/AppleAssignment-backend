@@ -1,8 +1,7 @@
 class Api::V1::CalculationRecordController < ApplicationController
 
-
   def index
-    @records = CalculationRecord.all
+    @records = CalculationRecord.all.order('created_at DESC')
   end
 
   def create
