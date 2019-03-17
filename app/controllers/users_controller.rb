@@ -2,6 +2,12 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_format
+
+  def set_format
+    request.format = :json
+  end
+
   # GET /users
   # GET /users.json
   def index
